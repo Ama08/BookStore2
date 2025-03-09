@@ -1,15 +1,21 @@
 package org.bookStore;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CheckoutTest {
 
+    Checkout checkout;
+    Basket basket;
+    @BeforeEach
+    void setUp() throws Exception{
+        checkout = new Checkout();
+        basket = new Basket();
+    }
     @Test
     public void test_CalculatePrice_ReturnsDoubleZeroPountZeroWhenPassedAnEmptyBasket(){
-        Basket basket = new Basket();
-        Checkout checkout = new Checkout();
         double price = checkout.calculatePrice(basket);
 
         assertEquals(0.0, price, 0.0001);
@@ -17,9 +23,7 @@ public class CheckoutTest {
 
     @Test
     public void test_CalculatePrice_ReturnsPriceOfBookInBasket_WhenPassedBasketWithOneBook() {
-        Basket basket = new Basket();
         Book book = new Book("Opal",12.95, 2564);
-        Checkout checkout = new Checkout();
         basket.addBook(book);
 
         double price = checkout.calculatePrice(basket);
@@ -28,8 +32,6 @@ public class CheckoutTest {
 
     @Test
     public void test_CalculatePrice_ReturnsPriceOfBookInBasket_WhenPassedBasketWithTwoBooks(){
-        Basket basket = new Basket();
-        Checkout checkout = new Checkout();
         Book book = new Book("Order", 9.50, 2465);
         Book book2 = new Book("Mother", 12.00, 23146);
 
@@ -43,8 +45,6 @@ public class CheckoutTest {
 
     @Test
     public void test_CalculatePrice_ReturnsPriceOfBookInBasketMinusOnePercent_WhenPassedBasketWithThreeBooks(){
-        Basket basket = new Basket();
-        Checkout checkout = new Checkout();
         Book book = new Book("Honey", 25.99, 1234);
         Book book2 = new Book("Bee", 25.99, 1254);
         Book book3 = new Book("Hallo", 25.99, 3629);
@@ -60,8 +60,6 @@ public class CheckoutTest {
 
     @Test
     public void test_CalculatePrice_ReturnsPriceOfBookInBasketMinusTwoPercent_WhenPassedBasketWithSevenBooks(){
-        Basket basket = new Basket();
-        Checkout checkout = new Checkout();
         Book book1 = new Book("Go", 25.99, 1356);
         Book book2 = new Book("Gina", 25.99, 2156);
         Book book3 = new Book("Lost city", 25.99, 2154);
@@ -86,8 +84,6 @@ public class CheckoutTest {
 
     @Test
     public void test_CalculatePrice_ReturnsPriceOfBookInBasketMinusThirteenPercent_WhenPassedBasketWithTenBooks(){
-        Basket basket = new Basket();
-        Checkout checkout = new Checkout();
         Book book1 = new Book("Go", 25.99, 1356);
         Book book2 = new Book("Gina", 25.99, 2156);
         Book book3 = new Book("Lost city", 25.99, 2154);
