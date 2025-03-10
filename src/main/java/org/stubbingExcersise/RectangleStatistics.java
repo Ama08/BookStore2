@@ -8,4 +8,11 @@ public class RectangleStatistics {
 
         return area;
     }
+
+    public int calculateArea(Rectangle rectangle){
+
+        int area = rectangle.getWidth() * rectangle.getLength();
+
+        return area;
+    }
 }
