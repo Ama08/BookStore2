@@ -46,9 +46,23 @@ public class TestRectangleStatistic {
         when(mockRectangle.getWidth()).thenReturn(3);
         when(mockRectangle.getLength()).thenReturn(8);
 
-        int circumference = rectangleStatistics.calculateCircumferance();
-        
+        int circumference = rectangleStatistics.calculateCircumference(mockRectangle);
+
+        assertEquals(22, circumference);
 
     }
 
+    @Test
+    void test_calculateCircumference_returns60_whenRectangleWithWidth10AndLength20PassedIn() {
+        Rectangle mockRectangle = Mockito.mock(Rectangle.class);
+        RectangleStatistics rectangleStatistics = new RectangleStatistics();
+
+        when(mockRectangle.getWidth()).thenReturn(10);
+        when(mockRectangle.getLength()).thenReturn(20);
+
+        int circumference = rectangleStatistics.calculateCircumference(mockRectangle);
+
+        assertEquals(60, circumference);
+
+    }
 }

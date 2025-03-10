@@ -4,15 +4,11 @@ public class RectangleStatistics {
 
     public int calculateArea(Rectangle rectangle){
 
-        int area = rectangle.getWidth() * rectangle.getLength();
-
-        return area;
+        return rectangle.getWidth() * rectangle.getLength();
     }
 
-    public int calculateArea(Rectangle rectangle){
+    public int calculateCircumference(Rectangle rectangle){
 
-        int area = rectangle.getWidth() * rectangle.getLength();
-
-        return area;
+        return (rectangle.getWidth() + rectangle.getLength()) * 2;
     }
 }
